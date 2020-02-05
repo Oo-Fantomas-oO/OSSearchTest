@@ -14,6 +14,8 @@
 		B865240123EB55B700B21D8B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B865240023EB55B700B21D8B /* Assets.xcassets */; };
 		B865240423EB55B700B21D8B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B865240223EB55B700B21D8B /* LaunchScreen.storyboard */; };
 		B865240723EB55B700B21D8B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B865240623EB55B700B21D8B /* main.m */; };
+		B865240F23EB5F0200B21D8B /* OSSection.m in Sources */ = {isa = PBXBuildFile; fileRef = B865240E23EB5F0200B21D8B /* OSSection.m */; };
+		B865241223EB5F4500B21D8B /* NSString+Random.m in Sources */ = {isa = PBXBuildFile; fileRef = B865241123EB5F4500B21D8B /* NSString+Random.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,10 @@
 		B865240323EB55B700B21D8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B865240523EB55B700B21D8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B865240623EB55B700B21D8B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B865240D23EB5F0200B21D8B /* OSSection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OSSection.h; sourceTree = "<group>"; };
+		B865240E23EB5F0200B21D8B /* OSSection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OSSection.m; sourceTree = "<group>"; };
+		B865241023EB5F4500B21D8B /* NSString+Random.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Random.h"; sourceTree = "<group>"; };
+		B865241123EB5F4500B21D8B /* NSString+Random.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Random.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +67,8 @@
 		B86523F323EB55B500B21D8B /* OSSearchTest */ = {
 			isa = PBXGroup;
 			children = (
+				B865241023EB5F4500B21D8B /* NSString+Random.h */,
+				B865241123EB5F4500B21D8B /* NSString+Random.m */,
 				B86523F423EB55B500B21D8B /* AppDelegate.h */,
 				B86523F523EB55B500B21D8B /* AppDelegate.m */,
 				B86523F723EB55B500B21D8B /* SceneDelegate.h */,
@@ -72,6 +80,8 @@
 				B865240223EB55B700B21D8B /* LaunchScreen.storyboard */,
 				B865240523EB55B700B21D8B /* Info.plist */,
 				B865240623EB55B700B21D8B /* main.m */,
+				B865240D23EB5F0200B21D8B /* OSSection.h */,
+				B865240E23EB5F0200B21D8B /* OSSection.m */,
 			);
 			path = OSSearchTest;
 			sourceTree = "<group>";
@@ -147,6 +157,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B86523FC23EB55B500B21D8B /* ViewController.m in Sources */,
+				B865240F23EB5F0200B21D8B /* OSSection.m in Sources */,
+				B865241223EB5F4500B21D8B /* NSString+Random.m in Sources */,
 				B86523F623EB55B500B21D8B /* AppDelegate.m in Sources */,
 				B865240723EB55B700B21D8B /* main.m in Sources */,
 				B86523F923EB55B500B21D8B /* SceneDelegate.m in Sources */,

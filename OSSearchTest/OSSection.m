@@ -1,15 +1,13 @@
 //
-//  ViewController.h
+//  OSSection.m
 //  OSSearchTest
 //
 //  Created by Sergii Onopriienko on 05.02.2020.
 //  Copyright © 2020 Onopriienko Sergii. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "OSSection.h"
 
-@interface ViewController : UITableViewController <UISearchBarDelegate>
-
+@implementation OSSection
 
 @end
-
