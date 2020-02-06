@@ -1,11 +1,3 @@
-//
-//  ViewController.m
-//  OSSearchTest
-//
-//  Created by Sergii Onopriienko on 05.02.2020.
-//  Copyright © 2020 Onopriienko Sergii. All rights reserved.
-//
-
 #import "ViewController.h"
 #import "OSSection.h"
 #import "NSString+Random.h"
@@ -14,6 +6,7 @@
 
 @property (strong, nonatomic) NSArray* namesArray;
 @property (strong, nonatomic) NSArray* sectionsArray;
+@property (strong, nonatomic) NSOperation *currentOperation;
 
 @end
 
@@ -33,11 +26,18 @@
     [array sortUsingDescriptors:@[sortDescriptor]];
     
     self.namesArray = array;
-    self.sectionsArray = [self generateSectionsFromArray:self.namesArray];
+    
+    self.sectionsArray = [self generateSectionsFromArray:self.namesArray withFilter:self.searchBar.text];
+    [self.tableView reloadData];
     
 }
 
-- (NSArray *) generateSectionsFromArray:(NSArray *) array {
+-(void) generateSectionsInBackgroundFromArray:(NSArray *) array withFilter:(NSString *) filterString {
+    
+    
+}
+
+- (NSArray *) generateSectionsFromArray:(NSArray *) array withFilter:(NSString *) filterString {
     
     NSMutableArray *sectionsArray = [NSMutableArray array];
     
@@ -45,9 +45,9 @@
     
     for (NSString * string in array) {
         
-//        if ([filterString length] > 0 && [string rangeOfString:filterString].location == NSNotFound) {
-//            continue;
-//        }
+        if ([filterString length] > 0 && [string rangeOfString:filterString].location == NSNotFound) {
+            continue;
+        }
         
         NSString *firstLetter = [string substringToIndex:1];
         
@@ -134,8 +134,8 @@
     
     NSLog(@"textDidChange %@", searchText);
     
-    //self.sectionsArray = [self generateSectionsFromArray:self.namesArray withFilter:searchText];
-    //[self.tableView reloadData];
+    self.sectionsArray = [self generateSectionsFromArray:self.namesArray withFilter:searchText];
+    [self.tableView reloadData];
     
     //[self generateSectionsInBackgroundFromArray:self.namesArray];
     

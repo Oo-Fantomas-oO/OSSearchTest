@@ -38,6 +38,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="m3I-3F-lOV"/>
+                    <connections>
+                        <outlet property="searchBar" destination="X8s-zg-Gul" id="ZEg-s3-IDg"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tyc-6z-5Dd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

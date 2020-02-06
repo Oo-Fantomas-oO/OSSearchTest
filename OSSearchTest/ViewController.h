@@ -10,6 +10,7 @@
 
 @interface ViewController : UITableViewController <UISearchBarDelegate>
 
+@property (weak, nonatomic) IBOutlet UISearchBar * searchBar;
 
 @end
 
