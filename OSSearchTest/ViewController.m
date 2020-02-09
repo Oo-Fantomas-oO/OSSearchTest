@@ -17,7 +17,7 @@
     
     NSMutableArray* array = [NSMutableArray array];
      
-    for (int i = 0; i < 200; i++) {
+    for (int i = 0; i < 200000; i++) {
         [array addObject:[[NSString randomAlphanumericString] capitalizedString]];
     }
     
@@ -27,14 +27,31 @@
     
     self.namesArray = array;
     
-    self.sectionsArray = [self generateSectionsFromArray:self.namesArray withFilter:self.searchBar.text];
-    [self.tableView reloadData];
+    //self.sectionsArray = [self generateSectionsFromArray:self.namesArray withFilter:self.searchBar.text];
+    //[self.tableView reloadData];
+    
+    [self generateSectionsInBackgroundFromArray:self.namesArray withFilter:self.searchBar.text];
     
 }
 
 -(void) generateSectionsInBackgroundFromArray:(NSArray *) array withFilter:(NSString *) filterString {
     
+    [self.currentOperation cancel];
     
+    __weak ViewController *weakSelf = self;
+    
+    self.currentOperation = [NSBlockOperation blockOperationWithBlock:^{
+        NSArray *sectionArray = [weakSelf generateSectionsFromArray:array withFilter:filterString];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            weakSelf.sectionsArray = sectionArray;
+            [weakSelf.tableView reloadData];
+            
+            self.currentOperation = nil;
+        });
+    }];
+    
+    [self.currentOperation start];
 }
 
 - (NSArray *) generateSectionsFromArray:(NSArray *) array withFilter:(NSString *) filterString {
@@ -134,11 +151,11 @@
     
     NSLog(@"textDidChange %@", searchText);
     
-    self.sectionsArray = [self generateSectionsFromArray:self.namesArray withFilter:searchText];
-    [self.tableView reloadData];
+//    self.sectionsArray = [self generateSectionsFromArray:self.namesArray withFilter:searchText];
+//    [self.tableView reloadData];
     
     //[self generateSectionsInBackgroundFromArray:self.namesArray];
-    
+    [self generateSectionsInBackgroundFromArray:self.namesArray withFilter:self.searchBar.text];
 }
 
 @end
